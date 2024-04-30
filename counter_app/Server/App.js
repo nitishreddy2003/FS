@@ -5,12 +5,12 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+const dburl=process.env.DBURL 
 app.use(express.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://username:password@cluster0.3fzxc4d.mongodb.net/testapp?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(dburl)
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Error connecting to MongoDB:', err));
 
